@@ -1,0 +1,16 @@
+---
+# tasks file for httpd-role
+- name: "Setting-up Webserver"
+  package:
+   name: "httpd"
+   state: present
+
+- name: "Copying index.php file to server's Active-Dir"
+  copy:
+   src: "/root/ws6/index.php"
+   dest: "/var/www/html"
+
+- name: "Starting httpd services"
+  service:
+   name: httpd
+   state: started

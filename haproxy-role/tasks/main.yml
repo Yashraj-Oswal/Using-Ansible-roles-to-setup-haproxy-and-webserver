@@ -1,0 +1,17 @@
+---
+# tasks file for haproxy-role
+
+- name: "Installing HAProxy(Loadbalancer)"
+  package:
+   name: "haproxy"
+   state: present
+
+- name: "Setting-up configuration file"
+  template:
+   src: "haproxy.cfg" 
+   dest: "/etc/haproxy/"
+
+- name: "Starting HAProxy services"
+  service:
+   name: "haproxy"
+   state: started
